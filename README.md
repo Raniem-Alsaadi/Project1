@@ -10,7 +10,7 @@ Check the <a href="https://www.facebook.com/groups/763178570435322/7645739102957
 <ul>
 <li>Zac Baum</li>
 <li>Joshua Lee</li>
-<li>Rhys Elyott</li>
+<li>Rhys Eylott</li>
 <li>Raniem Alsaadi</li>
 <li>Bobby Sundstrom</li>
 <li>Alex Adusei</li>
