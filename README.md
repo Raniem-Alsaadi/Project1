@@ -7,9 +7,10 @@ Check the <a href="https://www.facebook.com/groups/763178570435322/7645739102957
 
 #Team Members
 
-
 <h3>Manager</h3>
-<ul><li>Rhys Elyott</li><ul>
+<ul>
+<li>Rhys Elyott</li>
+</ul>
 
 <h3>Programmers</h3>
 <ul>
