@@ -19,6 +19,7 @@ Check the <a href="https://www.facebook.com/groups/763178570435322/7645739102957
 </ul>
 
 <h3>Top-Level Team</h3>
+<ul>
 <li>Zac Baum</li>
 <li>Raniem Alsaadi</li>
 <li>Bobby Sundstrom</li>
