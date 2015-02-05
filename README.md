@@ -9,7 +9,7 @@ Check the <a href="https://www.facebook.com/groups/763178570435322/7645739102957
 
 <h3>Manager</h3>
 <ul>
-<li>Rhys Elyott</li>
+<li>Rhys Eylott</li>
 </ul>
 
 <h3>Programmers</h3>
