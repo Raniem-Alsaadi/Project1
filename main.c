@@ -55,6 +55,7 @@ void displayTitle(){
 
 int displayStatus(float money, int water, int sugar, int lemons){
 	int result;
+	printf("  ___                _ _\n/ __|_  _ _ __ _ __| (_)___ ___\n\__ \ || | '_ \ '_ \ | / -_|_-<\n|___/\_,_| .__/ .__/_|_\___/__/\n          |_|  |_|\n");
 	printf("You have $%.2f in your pocket. You currently have:\n%d water\n%d sugar\n%d lemons.\n\n", money, water, sugar, lemons);
 	printf("What would you like to do? (enter only a number to proceed)\n1. Purchase supplies\n2. Start selling lemonade\n");
 
