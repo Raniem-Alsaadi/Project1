@@ -41,22 +41,47 @@ int main(void){
 	return 0;
 }
 
-void displayTitle(){
-	printf("+--------------------------------------------------------------------------------------------------------+\n");
-	printf("|         ___              ____                   ____    ____      ___   _____                  ____    |\n");
-	printf("|  |     |     |\\      /| |    | |\\   |    /\\    |    \\  |         /        |      /\\    |\\   | |    \\   |\n");
-	printf("|  |     |____ | \\    / | |    | | \\  |   /  \\   |     | |____     \\___     |     /  \\   | \\  | |     |  |\n");
-	printf("|  |     |     |  \\  /  | |    | |  \\ |  /----\\  |     | |             \\    |    /----\\  |  \\ | |     |  |\n");
-	printf("|  |____ |____ |   \\/   | |____| |   \\| /      \\ |____/  |____     ____/    |   /      \\ |   \\| |____/   |\n");
-	printf("|                                                                                                        |\n");
-	printf("+--------------------------------------------------------------------------------------------------------+\n\n");
 
+/*
+                                                                                  
+MMP""MM""YMM                                             
+P'   MM   `7                                             
+     MM `7M'   `MF',p6"bo   ,pW"Wq.   ,pW"Wq.`7MMpMMMb.  
+     MM   VA   ,V 6M'  OO  6W'   `Wb 6W'   `Wb MM    MM  
+     MM    VA ,V  8M       8M     M8 8M     M8 MM    MM  
+     MM     VVV   YM.    , YA.   ,A9 YA.   ,A9 MM    MM  
+   .JMML.   ,V     YMbmd'   `Ybmd9'   `Ybmd9'.JMML  JMML.
+           ,V                                            
+        OOb"    
+*/
+void displayTitle(){
+	printf("                                                                        ,,\n");
+	printf("`7MMF'                                                                `7MM\n");
+	printf("  MM                                                                    MM\n");
+	printf("  MM         .gP\"Ya `7MMpMMMb.pMMMb.  ,pW\"Wq.`7MMpMMMb.   ,6\"Yb.   ,M\"\"bMM  .gP\"Ya\n");
+	printf("  MM        ,M'   Yb  MM    MM    MM 6W'   `Wb MM    MM  8)   MM ,AP    MM ,M'   Yb\n");
+	printf("  MM      , 8M\"\"\"\"\"\"  MM    MM    MM 8M     M8 MM    MM   ,pm9MM 8MI    MM 8M\"\"\"\"\"\"\n");
+	printf("  MM     ,M YM.    ,  MM    MM    MM YA.   ,A9 MM    MM  8M   MM `Mb    MM YM.    ,\n");
+	printf(".JMMmmmmMMM  `Mbmmd'.JMML  JMML  JMML.`Ybmd9'.JMML  JMML.`Moo9^Yo.`Wbmd\"MML.`Mbmmd' \n\n");
+	printf("MMP\"\"MM\"\"YMM\n");
+	printf("P'   MM   `7\n");
+	printf("     MM `7M'   `MF',p6\"bo   ,pW\"Wq.   ,pW\"Wq.`7MMpMMMb.\n");
+	printf("     MM   VA   ,V 6M'  OO  6W'   `Wb 6W'   `Wb MM    MM\n");
+	printf("     MM    VA ,V  8M       8M     M8 8M     M8 MM    MM\n");
+	printf("     MM     VVV   YM.    , YA.   ,A9 YA.   ,A9 MM    MM\n");
+	printf("   .JMML.   ,V     YMbmd'   `Ybmd9'   `Ybmd9'.JMML  JMML.\n");
+	printf("           ,V\n");
+	printf("        OOb\"    \n\n");
 }
 
 int displayStatus(float money, int water, int sugar, int lemons){
 	int result;
-	printf("  ___                _ _\n/ __|_  _ _ __ _ __| (_)___ ___\n\__ \ || | '_ \ '_ \ | / -_|_-<\n|___/\_,_| .__/ .__/_|_\___/__/\n          |_|  |_|\n");
-	printf("You have $%.2f in your pocket. You currently have:\n%d water\n%d sugar\n%d lemons.\n\n", money, water, sugar, lemons);
+	printf("\n  ___                _ _\n");
+	printf(" / __|_  _ _ __ _ __| (_)___ ___\n");
+	printf(" \\__ \\ || | '_ \\ '_ \\ | / -_|_-<\n");
+	printf(" |___/\\_,_| .__/ .__/_|_\\___/__/\n");
+	printf("          |_|  |_|\n\n");
+	printf("You have $%.2f in your pocket...\nYou currently have:\n%d Water\n%d Sugar\n%d Lemons\n\n", money, water, sugar, lemons);
 	printf("What would you like to do? (enter only a number to proceed)\n1. Purchase supplies\n2. Start selling lemonade\n");
 
 	fscanf(stdin, "%d", &result);
@@ -67,8 +92,8 @@ int displayStatus(float money, int water, int sugar, int lemons){
 void purchase(float *money, int *water, int *sugar, int *lemons){
 
 	for(;;){
-		printf("Enter the respective number to purchase water, sugar, lemons (-1 to exit) \nPRICES\n1. Water: $%.2f\n2. Sugar: $%.2f\n3. Lemons: $%.2f\nYour Money: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE, *money);
-		printf("CURRENT STOCK:\n%d water\n%d sugar\n%d lemons.\n\n", *water, *sugar, *lemons);
+		printf("\nEnter the respective number to purchase water, sugar, lemons (-1 to exit) \n\nPRICES\n1. Water: $%.2f\n2. Sugar: $%.2f\n3. Lemons: $%.2f\nYour Money: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE, *money);
+		printf("\nCURRENT STOCK:\n%d Water\n%d Sugar\n%d Lemons\n\n", *water, *sugar, *lemons);
 
 		int choice;
 		fscanf(stdin, "%d", &choice);
@@ -111,6 +136,8 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 
 }
 
+// We need some way of preventing people from selling lemonade if they have 0 supplies because otherwise is segfaults!
+
 void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons){
 	srand(time(NULL));
 	int rndWater = rand() % *water;
@@ -122,7 +149,13 @@ void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons){
 	*lemons -= rndLemons;
 
 	int rndSales = rand() % 20;
-
+	
+	printf(" ___       _ _        ___                   _\n");
+	printf("|   \\ __ _(_) |_  _  | _ \\___ _ __  ___ _ _| |_\n");
+	printf("| |) / _` | | | || | |   / -_) '_ \\/ _ \\ '_|  _|\n");
+	printf("|___/\\__,_|_|_|\\_, | |_|_\\___| .__/\\___/_|  \\__|\n");
+	printf("               |__/          |_|\n\n");
+	
 	printf("DAY %d: You made %d sales today!\n", *days, rndSales);
 	int rndMoney = rand() % 50;
 	*money += rndMoney;
