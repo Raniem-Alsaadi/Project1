@@ -83,7 +83,7 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 
 		}
 		else if (choice == 2){
-			printf("Enter the amount of water: ");
+			printf("Enter the amount of sugar: ");
 			fscanf(stdin, "%d", &result);
 			*sugar += result;
 
@@ -91,7 +91,7 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 
 		}
 		else if (choice == 3){
-			printf("Enter the amount of water: ");
+			printf("Enter the amount of lemons: ");
 			fscanf(stdin, "%d", &result);
 			*lemons += result;
 
