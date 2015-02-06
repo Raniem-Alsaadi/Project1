@@ -41,19 +41,6 @@ int main(void){
 	return 0;
 }
 
-
-/*
-                                                                                  
-MMP""MM""YMM                                             
-P'   MM   `7                                             
-     MM `7M'   `MF',p6"bo   ,pW"Wq.   ,pW"Wq.`7MMpMMMb.  
-     MM   VA   ,V 6M'  OO  6W'   `Wb 6W'   `Wb MM    MM  
-     MM    VA ,V  8M       8M     M8 8M     M8 MM    MM  
-     MM     VVV   YM.    , YA.   ,A9 YA.   ,A9 MM    MM  
-   .JMML.   ,V     YMbmd'   `Ybmd9'   `Ybmd9'.JMML  JMML.
-           ,V                                            
-        OOb"    
-*/
 void displayTitle(){
 	printf("                                                                        ,,\n");
 	printf("`7MMF'                                                                `7MM\n");
