@@ -255,11 +255,17 @@ int pickPersonality() {
 	printf("Wait... Who are you?\n\n");
 	sleep(2);
 	printf("************ Character Select ************\n");
+	//Bobby gives no negative events
 	printf("1: Bobby\n ~ He's a great guy.\n ~ Most would say he's the strong silent type.\n ~ Nothing bad ever happens when Bobby is around.\n\n");
+	//Raniem gives sales 125%
 	printf("2: Raniem\n ~ She's flawless.\n ~ Most would say she's a charmer.\n ~ Everyone loves buying Raniem's Lemonade.\n\n");
+	//Alex gives resources 25% cheaper
 	printf("3: Alex\n ~ He can 'lick his elbow'... Not actually.\n ~ He has connections at the supermarket... If you know what I'm sayin'.\n\n");
+	//Josh starts with 5$
 	printf("4: Josh\n ~ He's Josh.\n ~ Nothing to see here.\n\n");
+	//Rhys gets better cost limits on purchases
 	printf("5: Rhys\n ~ Biggest beauty on campus.\n ~ Everyone loves Rhys.\n\n");
+	//Zac starts with 20$
 	printf("6: Zac\n ~ Likes to use his words.\n ~ Fights crimes on occasion.\n ~ Billionaire, philanthropist, playboy. He's Batman.\n\n");
 
 	printf("Enter the number of the character that you would like to play as: ");
