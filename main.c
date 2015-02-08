@@ -4,13 +4,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_LENGTH 10
 #define START_MONEY 10
 #define WATER_PRICE 0.25
 #define SUGAR_PRICE 0.50
 #define LEMON_PRICE 0.75
 
 void displayTitle();
+int getDays();
 int displayStatus(float m, int w, int s, int l);
 void purchase(float *money, int *w, int *s, int *l);
 void sellLemonade(int *days, float *money, int *w, int *s, int *l);
@@ -24,9 +24,11 @@ int main(void){
 
 	displayTitle();
 
-	printf("It's summer break and you're looking to make some cash! ");
+	printf("It's summer break and you're looking to make some cash!\n\n");
+	
+	int daysToPlay = getDays();
 
-	while (days < 10){
+	while (days <= daysToPlay){
 		int result = displayStatus(money, water, sugar, lemons);
 
 		if (result == 1)
@@ -61,6 +63,17 @@ void displayTitle(){
 	printf("        OOb\"    \n\n");
 }
 
+int getDays() {
+	
+	int result;
+	
+	printf("Before you start buying supplies and selling lemonade... How many days are left in your summer? ");
+
+	fscanf(stdin, "%d", &result);
+
+	return result;	
+}
+
 int displayStatus(float money, int water, int sugar, int lemons){
 	int result;
 	printf("\n  ___                _ _\n");
@@ -79,7 +92,7 @@ int displayStatus(float money, int water, int sugar, int lemons){
 void purchase(float *money, int *water, int *sugar, int *lemons){
 
 	for(;;){
-		printf("\nEnter the respective number to purchase water, sugar, lemons (-1 to exit) \n\nPRICES\n1. Water: $%.2f\n2. Sugar: $%.2f\n3. Lemons: $%.2f\nYour Money: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE, *money);
+		printf("\nEnter the respective number to purchase water, sugar, lemons (-1 to exit the store) \n\nPRICES\n1. Water: $%.2f\n2. Sugar: $%.2f\n3. Lemons: $%.2f\nYour Money: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE, *money);
 		printf("\nCURRENT STOCK:\n%d Water\n%d Sugar\n%d Lemons\n\n", *water, *sugar, *lemons);
 
 		int choice;
@@ -88,7 +101,7 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 		int result;
 
 		if (choice == 1){
-			printf("Enter the amount of water: ");
+			printf("Enter the amount of water you would like to buy: ");
 			fscanf(stdin, "%d", &result);
 			*water += result;
 
@@ -96,7 +109,7 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 
 		}
 		else if (choice == 2){
-			printf("Enter the amount of sugar: ");
+			printf("Enter the amount of sugar you would like to buy: ");
 			fscanf(stdin, "%d", &result);
 			*sugar += result;
 
@@ -104,7 +117,7 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 
 		}
 		else if (choice == 3){
-			printf("Enter the amount of lemons: ");
+			printf("Enter the amount of lemons you would like to buy: ");
 			fscanf(stdin, "%d", &result);
 			*lemons += result;
 
@@ -122,8 +135,6 @@ void purchase(float *money, int *water, int *sugar, int *lemons){
 	printf("\nYou are done purchasing stock\n");
 
 }
-
-// We need some way of preventing people from selling lemonade if they have 0 supplies because otherwise is segfaults!
 
 void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons){
 	srand(time(NULL));
