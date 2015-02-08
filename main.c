@@ -16,6 +16,8 @@ int getDays();
 int displayStatus(float m, int w, int s, int l, int c, float *p);
 void purchase(float *money, int *w, int *s, int *l, int *c, float *p);
 void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c, float *p);
+int pickPersonality();
+
 
 int main(void){
 	int days = 1;
@@ -26,26 +28,7 @@ int main(void){
 	float price = 0;
 	float money = START_MONEY;
 	
-	printf("It's summer break and you're looking to make some cash...\n\n");
-	sleep(1);
-	printf("...\n\n");
-	sleep(1);
-	printf("You've noticed that your mother has left her purse out... Again.\n\n");
-	sleep(1);
-	printf("...\n\n");
-	sleep(1);
-	printf("There's a 10 dollar bill sitting there with your name on it.\n\n");
-	sleep(1);
-	printf("...\n\n");
-	sleep(1);	
-	printf("You swipe it up and thus... A business was born...\n\n");
-	sleep(1);
-	printf("...\n\n");
-	sleep(1);	
-	printf("*************\n**DRUM ROLL**\n*************\n\n");
-	sleep(3);
-	displayTitle();
-	sleep(3);
+	int character = pickPersonality();
 
 	int daysToPlay = getDays();
 
@@ -222,4 +205,75 @@ void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, 
 	*days += 1;
 }
 
+int pickPersonality() {
 
+	printf("BEEP BEEP BEEP\n\n");
+	sleep(1);
+	printf("BEEP BEEP BEEP\n\n");
+	sleep(1);
+	printf("BEEP BEEP BEEP\n\n");
+	sleep(1);
+	printf("BEEP BEEP BEEP\n\n");
+	sleep(1);
+	printf("** SMASH **\n\n");
+	sleep(2);
+	printf("It's 7AM, and you just broke your alarm clock... Oops.\n\n");
+	sleep(1);
+	printf("Time to start the day!\n\n");
+	sleep(1);
+	printf("Wait... Who are you?\n\n");
+	sleep(2);
+	printf("************ Character Select ************\n");
+	printf("1: Bobby\n ~ He's a great guy.\n ~ Most would say he's the strong silent type.\n ~ Nothing bad ever happens when Bobby is around.\n\n");
+	printf("2: Raniem\n ~ She's flawless.\n ~ Most would say she's a charmer.\n ~ Everyone loves buying Raniem's Lemonade.\n\n");
+	printf("3: Alex\n ~ He can 'lick his elbow'... Not actually.\n ~ He has connections at the supermarket... If you know what I'm sayin'.\n\n");
+	printf("4: Josh\n ~ He's Josh.\n ~ Nothing to see here.\n\n");
+	printf("5: Rhys\n ~ Biggest beauty on campus.\n ~ Everyone loves Rhys.\n\n");
+	printf("6: Zac\n ~ Likes to use his words.\n ~ Fights crimes on occasion.\n ~ Billionaire, philanthropist, playboy. He's Batman.\n\n");
+
+	printf("Enter the number of the character that you would like to play as: ");
+
+	int result;
+	fscanf(stdin, "%d", &result);
+
+	if (result == 4) {
+		printf("\nYou picked Josh... Seriously?\nYou start with less money if you play as Josh.\nGood choice!\n\n");
+		sleep(1);
+		printf("Here we go...\n\n");
+	}
+
+	else if (result == 6) {
+		printf("\nIt's summer break and you're looking to make some cash...\n\n");
+		sleep(1);
+		printf("You've noticed that your mother has left her purse out... Again.\n\n");
+		sleep(1);
+		printf("There's a 20 dollar bill sitting there with your name on it.\n\n");
+		sleep(1);	
+		printf("You swipe it up and thus... A business was born...\n\n");
+		sleep(1);
+		printf("A man was born...\n\n");
+		sleep(1);
+		printf("He's the lemonade guy that Queen's deserves, but not the one it needs right now.\n");
+		printf("So we'll buy from him.\nBecause he can take it.\nBecause he's not our lemonade guy.\n");
+		printf("He's a citrus fruit guardian, a watchful mixer.\nA lemonade guy.\n\n");
+		sleep(5);
+		printf("...\n\n");
+	}
+	else {
+		printf("\nIt's summer break and you're looking to make some cash...\n\n");
+		sleep(1);
+		printf("You've noticed that your mother has left her purse out... Again.\n\n");
+		sleep(1);
+		printf("There's a 10 dollar bill sitting there with your name on it.\n\n");
+		sleep(1);	
+		printf("You swipe it up and thus... A business was born...\n\n");
+		sleep(1);
+		printf("...\n\n");
+	}
+
+	sleep(3);
+	displayTitle();
+	sleep(3);
+
+	return result;
+}
