@@ -166,7 +166,16 @@ void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, 
 	printf("|___/\\__,_|_|_|\\_, | |_|_\\___| .__/\\___/_|  \\__|\n");
 	printf("               |__/          |_|\n\n");
 	
-	printf("DAY %d: You made %d sales today!\n", *days, rndSales);
+	if(rndSales < 7){
+		printf("DAY %d: Today you had a slow day with only %d sales.\n", *days, rndSales);
+	}
+	else if(rndSales < 14){
+		printf("DAY %d: Today was an average day with %d sales.\n", *days, rndSales);
+	}
+	else{
+		printf("DAY %d: Today was a busy day with %d sales!\n", *days, rndSales);
+	}
+	
 	int rndMoney = rand() % 50;
 	*money += rndMoney;
 	*days += 1;
