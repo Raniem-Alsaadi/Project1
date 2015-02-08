@@ -13,7 +13,7 @@
 
 void displayTitle();
 int getDays();
-int displayStatus(float m, int w, int s, int l, int c, float *p);
+int displayStatus(float m, int w, int s, int l, int c, float p);
 void purchase(float *money, int *w, int *s, int *l, int *c, float *p);
 void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c, float *p);
 int pickPersonality();
@@ -205,6 +205,27 @@ void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, 
 	*days += 1;
 }
 
+void disaster (int *person, int *days, float *money, int *water, int *sugar, int *lemons, int *cups){
+	int chance = rand % 100;
+	if (chance < floor(*days/2))
+		int event = (rand % 6) + 1
+	
+	if (event == 0){
+		// Very Good Event
+	elif (event == 1){
+		// Good Event
+	elif (event == 2){
+		// Ok Event
+	elif (event == 3){
+		// Neutral
+	elif (event == 4){
+		// Bad Event
+	elif (event == 5){
+		// Really Bad Event
+	elif (event == 6){
+		// Oh Lord :(
+}
+
 int pickPersonality() {
 
 	printf("BEEP BEEP BEEP\n\n");
@@ -256,7 +277,7 @@ int pickPersonality() {
 		printf("He's the lemonade guy that Queen's deserves, but not the one it needs right now.\n");
 		printf("So we'll buy from him.\nBecause he can take it.\nBecause he's not our lemonade guy.\n");
 		printf("He's a citrus fruit guardian, a watchful mixer.\nA lemonade guy.\n\n");
-		sleep(8);
+		sleep(5);
 		printf("...\n\n");
 	}
 	else {
