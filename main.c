@@ -256,7 +256,7 @@ int pickPersonality() {
 		printf("He's the lemonade guy that Queen's deserves, but not the one it needs right now.\n");
 		printf("So we'll buy from him.\nBecause he can take it.\nBecause he's not our lemonade guy.\n");
 		printf("He's a citrus fruit guardian, a watchful mixer.\nA lemonade guy.\n\n");
-		sleep(5);
+		sleep(8);
 		printf("...\n\n");
 	}
 	else {
