@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #define START_MONEY 10
 #define WATER_PRICE 0.25
@@ -12,9 +13,9 @@
 
 void displayTitle();
 int getDays();
-int displayStatus(float m, int w, int s, int l, int c);
-void purchase(float *money, int *w, int *s, int *l, int *c);
-void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c);
+int displayStatus(float m, int w, int s, int l, int c, float *p);
+void purchase(float *money, int *w, int *s, int *l, int *c, float *p);
+void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c, float *p);
 
 int main(void){
 	int days = 1;
@@ -22,6 +23,7 @@ int main(void){
 	int sugar = 0;
 	int lemons = 0;
 	int cups = 0;
+	float price = 0;
 	float money = START_MONEY;
 	
 	printf("It's summer break and you're looking to make some cash...\n\n");
@@ -48,12 +50,12 @@ int main(void){
 	int daysToPlay = getDays();
 
 	while (days <= daysToPlay){
-		int result = displayStatus(money, water, sugar, lemons, cups);
+		int result = displayStatus(money, water, sugar, lemons, cups, price);
 
 		if (result == 1)
-			purchase(&money, &water, &sugar, &lemons, &cups);
+			purchase(&money, &water, &sugar, &lemons, &cups, &price);
 		else if (result == 2)
-			sellLemonade(&days, &money, &water, &sugar, &lemons, &cups);
+			sellLemonade(&days, &money, &water, &sugar, &lemons, &cups, &price);
 
 	}
 
@@ -160,7 +162,8 @@ void purchase(float *money, int *water, int *sugar, int *lemons, int *cups){
 
 	printf("\nYou are done purchasing stock\n");
 	
-	float price;
+		float price;
+	
 	printf("Would you like to change your prices?\n1. Yes\n2. No\n");
 	fscanf(stdin, "%d", &result);
 	
@@ -179,6 +182,7 @@ float setPrice(){
 		printf("How much will each cup cost?\n");
 		fscanf(stdin, "%f", &result);
 	}
+	
 	return result;
 }
 
