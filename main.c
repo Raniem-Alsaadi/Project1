@@ -14,7 +14,7 @@
 void displayTitle();
 int getDays();
 int displayStatus(float m, int w, int s, int l, int c, float p);
-void purchase(float *money, int *w, int *s, int *l, int *c, float *p);
+void purchase(float *money, int *w, int *s, int *l, int *c, int *rw, int *rs, int *rl, float *price);
 void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c, float *p);
 int pickPersonality();
 void setPrice(float *price);
@@ -25,6 +25,11 @@ int main(void){
 	int sugar = 0;
 	int lemons = 0;
 	int cups = 0;
+
+	int recipeWater = 1;
+	int recipeSugar = 1;
+	int recipeLemons = 1;
+
 	float price = 0;
 	float money = START_MONEY;
 	
@@ -36,13 +41,13 @@ int main(void){
 		int result = displayStatus(money, water, sugar, lemons, cups, price);
 
 		if (result == 1)
-			purchase(&money, &water, &sugar, &lemons, &cups, &price);
+			purchase(&money, &water, &sugar, &lemons, &cups, &recipeWater, &recipeSugar, &recipeLemons, &price);
 		else if (result == 2)
 			sellLemonade(&days, &money, &water, &sugar, &lemons, &cups, &price);
 
 	}
 
-	printf("\nSummer's Over! You ended up with $%.2f!\n", days, money); 
+	printf("\nSummer's Over! You ended up with $%.2f!\n", money); 
 	
 	//Zac do credits! - The Manager
 
@@ -87,7 +92,7 @@ int displayStatus(float money, int water, int sugar, int lemons, int cups, float
 	printf(" \\__ \\ || | '_ \\ '_ \\ | / -_|_-<\n");
 	printf(" |___/\\_,_| .__/ .__/_|_\\___/__/\n");
 	printf("          |_|  |_|\n\n");
-	printf("You have $%.2f in your pocket...\nYou currently have:\n%d Water\n%d Sugar\n%d Lemons\n%d Cups\n\n", money, water, sugar, lemons, cups);
+	printf("You have $%.2f in your pocket...\nYou currently have: %d cups\n\n", money, cups);
 	printf("What would you like to do? (enter only a number to proceed)\n1. Purchase supplies\n2. Start selling lemonade\n");
 
 	fscanf(stdin, "%d", &result);
@@ -95,66 +100,42 @@ int displayStatus(float money, int water, int sugar, int lemons, int cups, float
 	return result;
 }
 
-void purchase(float *money, int *water, int *sugar, int *lemons, int *cups, float *price){
+void purchase(float *money, int *water, int *sugar, int *lemons, int *cups, int *rWater, int *rSugar, int *rLemons, float *price){
 
-	for(;;){
-		printf("\nEnter the respective number to purchase water, sugar, lemons (-1 to exit the store) \n\nPRICES\n1. Water: $%.2f\n2. Sugar: $%.2f\n3. Lemons: $%.2f\n4. Cups: $%.2f\nYour Money: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE, CUP_PRICE, *money);
-		printf("\nCURRENT STOCK:\n%d Water\n%d Sugar\n%d Lemons\n%d Cups\n\n", *water, *sugar, *lemons, *cups);
+	for (;;){
+		printf("\nCups are made from lemonade recipes. Current recipe: 1 Cup = %d water, %d sugar, %d lemons\n", *rWater, *rSugar, *rLemons);
+		printf("\nYOUR MONEY: $%.2f\n", *money);
+		printf("\nPRICING:\nWater: $%.2f\nSugar: $%.2f\nLemons: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE);
+		printf("\nCUPS: %d\n", *cups);
+		printf("\nHow many cups would you like to make? ($%.2f / cup): ", (WATER_PRICE * (*rWater)) + (SUGAR_PRICE * (*rSugar)) + (LEMON_PRICE * (*rLemons)));
 
-		int choice;
-		fscanf(stdin, "%d", &choice);
+		int numCups;
+		fscanf(stdin, "%d", &numCups);
 
-		int result;
+		float cost = numCups * (WATER_PRICE + SUGAR_PRICE + LEMON_PRICE);
 
-		if (choice == 1){
-			printf("Enter the amount of water you would like to buy: ");
-			fscanf(stdin, "%d", &result);
-			*water += result;
-
-			*money -= (result * WATER_PRICE);
-
-		}
-		else if (choice == 2){
-			printf("Enter the amount of sugar you would like to buy: ");
-			fscanf(stdin, "%d", &result);
-			*sugar += result;
-
-			*money -= (result * SUGAR_PRICE);
-
-		}
-		else if (choice == 3){
-			printf("Enter the amount of lemons you would like to buy: ");
-			fscanf(stdin, "%d", &result);
-			*lemons += result;
-
-			*money -= (result * LEMON_PRICE);
-
-		}
-		else if (choice == 4){
-			printf("Enter the amount of cups you would like to buy: ");
-			fscanf(stdin, "%d", &result);
-			*cups += result;
-
-			*money -= (result * CUP_PRICE);
-		}
-		else if (choice == -1){
+		if (numCups < 0)
+			printf("\nYou cannot purchase negative cups!\n");
+		else if (*money - cost < 0)
+			printf("\nSorry, you can't afford %d cups right now. (%d cups = $%.2f)\n", numCups, numCups, cost);
+		else{
+			*money -= cost;
+			*cups += numCups;
+			printf("\n%d cups = $%.2f\n", numCups, cost);
 			break;
 		}
-
-		if (*money < 0)
-			*money = 0;
 	}
 
-	printf("\nYou are done purchasing stock\n");
+	printf("You now have %d cups!\n", *cups);
 	
-	printf("Would you like to change your prices?\n1. Yes\n2. No\n");
+	// printf("Would you like to change your prices?\n1. Yes\n2. No\n");
 	
-	int result;
-	fscanf(stdin, "%d", &result);
+	// int result;
+	// fscanf(stdin, "%d", &result);
 	
-	if(result == 1){
-		setPrice(price);
-	}
+	// if(result == 1){
+	// 	setPrice(&price);
+	// }
 }
 
 void setPrice(float *price){
@@ -172,6 +153,9 @@ void setPrice(float *price){
 }
 
 void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, int *cups, float *price){
+	printf("Set your price for the day: ");
+	setPrice(price);
+
 	srand(time(NULL));
 	int rndWater = rand() % *water;
 	int rndSugar = rand() % *sugar;
@@ -210,7 +194,8 @@ void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, 
 void disaster (int *person, int *days, float *money, int *water, int *sugar, int *lemons, int *cups){
 	int event;
 	int chance = rand() % 100 + 1;
-	if (chance < floor(*days/2))
+
+	if (chance < (*days / 2))
 		event = (rand() % 7);
 	
 	if (event == 0){
