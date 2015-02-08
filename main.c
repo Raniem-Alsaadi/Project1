@@ -95,7 +95,7 @@ int getDays() {
 	return result;	
 }
 
-int displayStatus(float money, int water, int sugar, int lemons, int cups){
+int displayStatus(float money, int water, int sugar, int lemons, int cups, float price){
 	int result;
 	printf("\n  ___                _ _\n");
 	printf(" / __|_  _ _ __ _ __| (_)___ ___\n");
@@ -110,7 +110,7 @@ int displayStatus(float money, int water, int sugar, int lemons, int cups){
 	return result;
 }
 
-void purchase(float *money, int *water, int *sugar, int *lemons, int *cups){
+void purchase(float *money, int *water, int *sugar, int *lemons, int *cups, float *price){
 
 	for(;;){
 		printf("\nEnter the respective number to purchase water, sugar, lemons (-1 to exit the store) \n\nPRICES\n1. Water: $%.2f\n2. Sugar: $%.2f\n3. Lemons: $%.2f\n4. Cups: $%.2f\nYour Money: $%.2f\n", WATER_PRICE, SUGAR_PRICE, LEMON_PRICE, CUP_PRICE, *money);
@@ -186,7 +186,7 @@ float setPrice(){
 	return result;
 }
 
-void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, int *cups){
+void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, int *cups, float *price){
 	srand(time(NULL));
 	int rndWater = rand() % *water;
 	int rndSugar = rand() % *sugar;
