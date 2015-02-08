@@ -17,7 +17,7 @@ int displayStatus(float m, int w, int s, int l, int c, float p);
 void purchase(float *money, int *w, int *s, int *l, int *c, float *p);
 void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c, float *p);
 int pickPersonality();
-
+void setPrice(float *price);
 
 int main(void){
 	int days = 1;
@@ -151,11 +151,11 @@ void purchase(float *money, int *water, int *sugar, int *lemons, int *cups, floa
 	fscanf(stdin, "%d", &result);
 	
 	if(result == 1){
-		*price = setPrice();
+		setPrice(price);
 	}
 }
 
-float setPrice(){
+void setPrice(float *price){
 	float result;	
 	printf("How much will each cup cost?\n");
 	fscanf(stdin, "%f", &result);
@@ -166,7 +166,7 @@ float setPrice(){
 		fscanf(stdin, "%f", &result);
 	}
 	
-	return result;
+	*price = result;
 }
 
 void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, int *cups, float *price){
@@ -206,24 +206,32 @@ void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, 
 }
 
 void disaster (int *person, int *days, float *money, int *water, int *sugar, int *lemons, int *cups){
-	int chance = rand % 100;
+	int event;
+	int chance = rand() % 100 + 1;
 	if (chance < floor(*days/2))
-		int event = (rand % 6) + 1
+		event = (rand() % 7);
 	
 	if (event == 0){
 		// Very Good Event
-	elif (event == 1){
+		}
+	else if (event == 1){
 		// Good Event
-	elif (event == 2){
+		}
+	else if (event == 2){
 		// Ok Event
-	elif (event == 3){
+		}
+	else if (event == 3){
 		// Neutral
-	elif (event == 4){
+		}
+	else if (event == 4){
 		// Bad Event
-	elif (event == 5){
+		}
+	else if (event == 5){
 		// Really Bad Event
-	elif (event == 6){
+		}
+	else if (event == 6){
 		// Oh Lord :(
+		}
 }
 
 int pickPersonality() {
