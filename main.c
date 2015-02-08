@@ -42,7 +42,9 @@ int main(void){
 
 	}
 
-	printf("\nIT'S DAY %d and summer's over! You ended up with $%.2f!\n", days, money); 
+	printf("\nSummer's Over! You ended up with $%.2f!\n", days, money); 
+	
+	//Zac do credits! - The Manager
 
 	return 0;
 }
