@@ -168,17 +168,18 @@ void purchase(float *money, int *water, int *sugar, int *lemons, int *cups){
 	if(result == 1){
 		price = setPrice();
 	}
-	
-	while(price <= 0){
-		printf("You need to set your price to a positive number.");
-		price = setPrice();
-	}
 }
 
 float setPrice(){
 	float result;	
 	printf("How much will each cup cost?\n");
 	fscanf(stdin, "%f", &result);
+	
+	while(result <= 0){
+		printf("You need to set your price to a positive number.");
+		printf("How much will each cup cost?\n");
+		fscanf(stdin, "%f", &result);
+	}
 	
 	return result;
 }
