@@ -159,7 +159,28 @@ void purchase(float *money, int *water, int *sugar, int *lemons, int *cups){
 	}
 
 	printf("\nYou are done purchasing stock\n");
+	
+		float price;
+	
+	printf("Would you like to change your prices?\n1. Yes\n2. No\n");
+	fscanf(stdin, "%d", &result);
+	
+	if(result == 1){
+		price = setPrice();
+	}
+	
+	if(price <= 0){
+		printf("You need to set your price to a positive number.");
+		price = setPrice();
+	}
+}
 
+float setPrice(){
+	float result;	
+	printf("How much will each cup cost?\n");
+	fscanf(stdin, "%f", &result);
+	
+	return result;
 }
 
 void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, int *cups){
