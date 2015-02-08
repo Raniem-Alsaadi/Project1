@@ -23,11 +23,28 @@ int main(void){
 	int lemons = 0;
 	int cups = 0;
 	float money = START_MONEY;
-
-	displayTitle();
-
-	printf("It's summer break and you're looking to make some cash!\n\n");
 	
+	printf("It's summer break and you're looking to make some cash...\n\n");
+	sleep(1);
+	printf("...\n\n");
+	sleep(1);
+	printf("You've noticed that your mother has left her purse out... Again.\n\n");
+	sleep(1);
+	printf("...\n\n");
+	sleep(1);
+	printf("There's a 10 dollar bill sitting there with your name on it.\n\n");
+	sleep(1);
+	printf("...\n\n");
+	sleep(1);	
+	printf("You swipe it up and thus... A business was born...\n\n");
+	sleep(1);
+	printf("...\n\n");
+	sleep(1);	
+	printf("*************\n**DRUM ROLL**\n*************\n\n");
+	sleep(3);
+	displayTitle();
+	sleep(3);
+
 	int daysToPlay = getDays();
 
 	while (days <= daysToPlay){
