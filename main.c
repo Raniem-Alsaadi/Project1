@@ -169,7 +169,7 @@ void purchase(float *money, int *water, int *sugar, int *lemons, int *cups){
 		price = setPrice();
 	}
 	
-	if(price <= 0){
+	while(price <= 0){
 		printf("You need to set your price to a positive number.");
 		price = setPrice();
 	}
