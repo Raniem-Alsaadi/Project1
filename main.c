@@ -145,8 +145,6 @@ void purchase(float *money, int *water, int *sugar, int *lemons, int *cups, floa
 
 	printf("\nYou are done purchasing stock\n");
 	
-	float *price;
-	
 	printf("Would you like to change your prices?\n1. Yes\n2. No\n");
 	
 	int result;
