@@ -322,7 +322,7 @@ void endCredits() {
   	printf("  TTT   HH   HH EEEEEEE    EEEEEEE NN   NN DDDDDD\n\n");
   	sleep(3);
   	printf("CREDITS:\n\n");
-  	sleep(1):
+  	sleep(1);
   	printf("~~~~~~~~~~~~~~~ A Game by Team 10 ~~~~~~~~~~~~~~~\n\n");
   	sleep(1);
   	printf("~~~~~~ Team Members (In No Specific Order) ~~~~~~\n\n");
