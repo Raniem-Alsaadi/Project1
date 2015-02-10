@@ -18,6 +18,7 @@ void purchase(float *money, int *w, int *s, int *l, int *c, int *rw, int *rs, in
 void sellLemonade(int *days, float *money, int *w, int *s, int *l, int *c, float *p);
 int pickPersonality();
 void setPrice(float *price);
+void endCredits();
 
 int main(void){
 	int days = 1;
@@ -49,7 +50,7 @@ int main(void){
 
 	printf("\nSummer's Over! You ended up with $%.2f!\n", money); 
 	
-	//Zac do credits! - The Manager
+	endCredits();
 
 	return 0;
 }
@@ -298,4 +299,38 @@ int pickPersonality() {
 	sleep(3);
 
 	return result;
+}
+
+void endCredits() {
+	
+	printf("\nAs your alarm goes off at 6:30AM for the first day of school...\n\n");
+	sleep(1);
+	printf("You feel relieved.\n\n");
+	sleep(1);
+	printf("You made it.\n\n");
+	sleep(2);	
+	printf("You're a tycoon; of the lemonade variety.\n\n");
+	sleep(2);
+	printf("...Congratulations?\n\n");
+	sleep(2);
+	printf("**Slow Clap Begins**\n\n");
+	sleep(1);
+	printf("TTTTTTT HH   HH EEEEEEE    EEEEEEE NN   NN DDDDD\n"); 
+  	printf("  TTT   HH   HH EE         EE      NNN  NN DD  DD\n");  
+  	printf("  TTT   HHHHHHH EEEEE      EEEEE   NN N NN DD   DD\n");
+  	printf("  TTT   HH   HH EE         EE      NN  NNN DD   DD\n");
+  	printf("  TTT   HH   HH EEEEEEE    EEEEEEE NN   NN DDDDDD\n\n");
+  	sleep(3);
+  	printf("CREDITS:\n\n");
+  	sleep(1):
+  	printf("~~~~~~~~~~~~~~~ A Game by Team 10 ~~~~~~~~~~~~~~~\n\n");
+  	sleep(1);
+  	printf("~~~~~~ Team Members (In No Specific Order) ~~~~~~\n\n");
+  	sleep(1);
+  	printf("~~~~~~ Rhys Eylott, Alex  Adusei, Zac Baum ~~~~~~\n\n");
+  	sleep(1);
+  	printf("~~ Raniem Alsaadi, Joshua Lee, Bobby Sundstrom ~~\n\n");
+  	sleep(2);
+  	printf("~~~~~~~~~~~~~~ THANKS FOR PLAYING! ~~~~~~~~~~~~~~\n");
+  	
 }
