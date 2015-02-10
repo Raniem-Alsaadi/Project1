@@ -156,40 +156,49 @@ void setPrice(float *price){
 void sellLemonade(int *days, float *money, int *water, int *sugar, int *lemons, int *cups, float *price){
 	printf("Set your price for the day: ");
 	setPrice(price);
-
-	srand(time(NULL));
-	int rndWater = rand() % *water;
-	int rndSugar = rand() % *sugar;
-	int rndLemons = rand() % *lemons;
-	int rndCups = rand() % *cups;
-
-
-	*water -= rndWater;
-	*sugar -= rndSugar;
-	*lemons -= rndLemons;
-	*cups -= rndCups;
-
-	int rndSales = rand() % 20;
 	
-	printf(" ___       _ _        ___                   _\n");
-	printf("|   \\ __ _(_) |_  _  | _ \\___ _ __  ___ _ _| |_\n");
-	printf("| |) / _` | | | || | |   / -_) '_ \\/ _ \\ '_|  _|\n");
-	printf("|___/\\__,_|_|_|\\_, | |_|_\\___| .__/\\___/_|  \\__|\n");
-	printf("               |__/          |_|\n\n");
-	
-	if(rndSales < 7){
-		printf("DAY %d: Today you had a slow day with only %d sales.\n", *days, rndSales);
-	}
-	else if(rndSales < 14){
-		printf("DAY %d: Today was an average day with %d sales.\n", *days, rndSales);
+	if((*water||*sugar||*lemons||*cups) == 0)
+	{
+		printf("\nYou didn't make any sales today because you didn't have enough supplies.\n");
+		*days += 1;
+		sleep(2);
 	}
 	else{
-		printf("DAY %d: Today was a busy day with %d sales!\n", *days, rndSales);
-	}
 	
-	int rndMoney = rand() % 50;
-	*money += rndMoney;
-	*days += 1;
+		srand(time(NULL));
+		int rndWater = rand() % *water;
+		int rndSugar = rand() % *sugar;
+		int rndLemons = rand() % *lemons;
+		int rndCups = rand() % *cups;
+	
+	
+		*water -= rndWater;
+		*sugar -= rndSugar;
+		*lemons -= rndLemons;
+		*cups -= rndCups;
+	
+		int rndSales = rand() % 20;
+		
+		printf(" ___       _ _        ___                   _\n");
+		printf("|   \\ __ _(_) |_  _  | _ \\___ _ __  ___ _ _| |_\n");
+		printf("| |) / _` | | | || | |   / -_) '_ \\/ _ \\ '_|  _|\n");
+		printf("|___/\\__,_|_|_|\\_, | |_|_\\___| .__/\\___/_|  \\__|\n");
+		printf("               |__/          |_|\n\n");
+		
+		if(rndSales < 7){
+			printf("DAY %d: Today you had a slow day with only %d sales.\n", *days, rndSales);
+		}
+		else if(rndSales < 14){
+			printf("DAY %d: Today was an average day with %d sales.\n", *days, rndSales);
+		}
+		else{
+			printf("DAY %d: Today was a busy day with %d sales!\n", *days, rndSales);
+		}
+		
+		int rndMoney = rand() % 50;
+		*money += rndMoney;
+		*days += 1;
+	}
 }
 
 void disaster (int *person, int *days, float *money, int *water, int *sugar, int *lemons, int *cups){
