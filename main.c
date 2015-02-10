@@ -313,7 +313,7 @@ void endCredits() {
 	sleep(2);
 	printf("...Congratulations?\n\n");
 	sleep(2);
-	printf("**Slow Clap Begins**\n\n");
+	printf("** Slow Clap Begins **\n\n");
 	sleep(1);
 	printf("TTTTTTT HH   HH EEEEEEE    EEEEEEE NN   NN DDDDD\n"); 
   	printf("  TTT   HH   HH EE         EE      NNN  NN DD  DD\n");  
